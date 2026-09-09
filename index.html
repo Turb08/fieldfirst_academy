@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FieldFirst Academy — Training That Moves People Into The Field</title>
 <meta name="description" content="FieldFirst Academy trains young professionals and merchandisers for real FMCG, sales and field-based work — through practical, industry-led training and direct field exposure.">
-<meta name="theme-color" content="#131C27">
+<meta name="theme-color" content="#0B0B0D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -39,6 +39,8 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero">
+    <div class="orb orb-a orb-accent orb-float" aria-hidden="true"></div>
+    <div class="orb orb-b orb-accent2 orb-float" aria-hidden="true"></div>
     <div class="container hero-grid">
       <div class="hero-copy">
         <span class="eyebrow">FMCG &amp; Sales Training Academy</span>
@@ -49,40 +51,55 @@
           <a href="#employers" class="btn btn-outline">Partner With Us</a>
         </div>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <svg viewBox="0 0 480 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path class="route-path" d="M151,141 C220,190 250,240 300,262 C330,276 340,300 359,319" stroke="#C8763B" stroke-width="2"/>
-          <circle cx="110" cy="100" r="56" fill="#0F1721" stroke="rgba(255,255,255,0.16)"/>
-          <g transform="translate(88,78)" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
-            <rect x="0" y="4" width="44" height="30" rx="2"/>
-            <line x1="8" y1="12" x2="30" y2="12"/>
-            <line x1="8" y1="19" x2="24" y2="19"/>
-            <line x1="8" y1="26" x2="34" y2="26"/>
-          </g>
-          <text x="110" y="180" text-anchor="middle" class="hero-node-label">Training Room</text>
-
-          <circle cx="400" cy="360" r="56" fill="#0F1721" stroke="#C8763B" stroke-width="1.5"/>
-          <g transform="translate(378,338)" stroke="#C8763B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
-            <path d="M2,10 L4,2 L40,2 L42,10"/>
-            <rect x="2" y="10" width="40" height="26"/>
-            <line x1="14" y1="18" x2="14" y2="36"/>
-            <line x1="30" y1="18" x2="30" y2="36"/>
-          </g>
-          <text x="400" y="440" text-anchor="middle" class="hero-node-label">The Field</text>
-        </svg>
+      <div class="hero-orb-wrap" aria-hidden="true">
+        <div class="hero-ring ring-2"></div>
+        <div class="hero-ring ring-1"></div>
+        <div class="hero-orb-core"></div>
       </div>
     </div>
   </section>
 
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee-section">
+    <div class="marquee">
+      <div class="marquee-track">
+        <span class="pill">Approaching retailers</span>
+        <span class="pill">Handling objections</span>
+        <span class="pill">Managing outlets</span>
+        <span class="pill">Maintaining visibility</span>
+        <span class="pill">Executing routes</span>
+        <span class="pill">Approaching retailers</span>
+        <span class="pill">Handling objections</span>
+        <span class="pill">Managing outlets</span>
+        <span class="pill">Maintaining visibility</span>
+        <span class="pill">Executing routes</span>
+      </div>
+    </div>
+    <div class="marquee reverse">
+      <div class="marquee-track">
+        <span class="pill">Solving problems on the spot</span>
+        <span class="pill">Working under time pressure</span>
+        <span class="pill">Communicating with customers</span>
+        <span class="pill">Delivering against targets</span>
+        <span class="pill">Field discipline</span>
+        <span class="pill">Solving problems on the spot</span>
+        <span class="pill">Working under time pressure</span>
+        <span class="pill">Communicating with customers</span>
+        <span class="pill">Delivering against targets</span>
+        <span class="pill">Field discipline</span>
+      </div>
+    </div>
+  </div>
+
   <!-- ============ WHAT WE DO ============ -->
-  <section class="pathway" aria-labelledby="what-we-do-h">
+  <section aria-labelledby="what-we-do-h">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <span class="eyebrow">What we do</span>
         <h2 id="what-we-do-h">Training built to close one gap.</h2>
       </div>
-      <p class="pathway-intro">The distance between knowing about sales and being ready to do it. Candidates learn, practice, and move directly into real FMCG, merchandising and field-based work — guided the whole way by someone who has actually done the job.</p>
-      <div class="pathway-track">
+      <p class="pathway-intro" data-reveal>The distance between knowing about sales and being ready to do it. Candidates learn, practice, and move directly into real FMCG, merchandising and field-based work — guided the whole way by someone who has actually done the job.</p>
+      <div class="pathway-track" data-reveal>
         <div class="pathway-step"><div class="pathway-dot">1</div><strong>Learn</strong></div>
         <div class="pathway-step"><div class="pathway-dot">2</div><strong>Practice</strong></div>
         <div class="pathway-step"><div class="pathway-dot">3</div><strong>Enter the field</strong></div>
@@ -92,38 +109,28 @@
   </section>
 
   <!-- ============ WHY FIELD TRAINING MATTERS ============ -->
-  <section class="field-matters" aria-labelledby="field-matters-h">
+  <section class="field-matters section-border" aria-labelledby="field-matters-h">
     <div class="container fm-grid">
-      <div>
+      <div data-reveal>
         <span class="eyebrow">Why field training matters</span>
         <h2 id="field-matters-h">The classroom teaches the concept. The field teaches the job.</h2>
         <p class="lede">FMCG and sales work happens in real stores, with real people, under real pressure. No slide deck fully prepares someone for that — so we don't rely on one.</p>
       </div>
-      <div class="scenario-grid">
-        <div class="scenario-item">Approaching retailers</div>
-        <div class="scenario-item">Handling objections</div>
-        <div class="scenario-item">Managing outlets</div>
-        <div class="scenario-item">Maintaining visibility</div>
-        <div class="scenario-item">Executing routes</div>
-        <div class="scenario-item">Solving problems on the spot</div>
-        <div class="scenario-item">Working under time pressure</div>
-        <div class="scenario-item">Communicating with customers</div>
-        <div class="scenario-item">Delivering against targets</div>
-      </div>
+      <p class="fm-quote" data-reveal>Every scenario a rep or merchandiser will actually face — worked into the training before day one on the job.</p>
     </div>
   </section>
 
   <!-- ============ PROGRAMS ============ -->
   <section class="programs" id="programs" aria-labelledby="programs-h">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <span class="eyebrow">Training programs</span>
         <h2 id="programs-h">Two starting points, one destination.</h2>
         <p>Both programs run on the same principle: structured training first, real field practice before the program ends.</p>
       </div>
       <div class="programs-grid">
 
-        <article class="program-card dark">
+        <article class="program-card featured" data-reveal>
           <span class="eyebrow-mini">Ages 18–25</span>
           <h3 class="program-title">Young Professionals</h3>
           <p class="program-tag">Start your career from the field up.</p>
@@ -138,21 +145,21 @@
 
           <h4>What's covered</h4>
           <ul class="tag-list">
-            <li class="pill on-dark">Sales fundamentals</li>
-            <li class="pill on-dark">Communication</li>
-            <li class="pill on-dark">Customer interaction</li>
-            <li class="pill on-dark">Product knowledge</li>
-            <li class="pill on-dark">Selling techniques</li>
-            <li class="pill on-dark">Route planning</li>
-            <li class="pill on-dark">Territory management</li>
-            <li class="pill on-dark">Basic merchandising</li>
-            <li class="pill on-dark">Professional conduct</li>
-            <li class="pill on-dark">Field discipline</li>
+            <li class="pill">Sales fundamentals</li>
+            <li class="pill">Communication</li>
+            <li class="pill">Customer interaction</li>
+            <li class="pill">Product knowledge</li>
+            <li class="pill">Selling techniques</li>
+            <li class="pill">Route planning</li>
+            <li class="pill">Territory management</li>
+            <li class="pill">Basic merchandising</li>
+            <li class="pill">Professional conduct</li>
+            <li class="pill">Field discipline</li>
           </ul>
           <p class="program-note">This isn't classroom-only training — every candidate handles real customer situations before the program ends.</p>
         </article>
 
-        <article class="program-card">
+        <article class="program-card" data-reveal>
           <span class="eyebrow-mini">Ages 22+</span>
           <h3 class="program-title">Merchandisers</h3>
           <p class="program-tag">You don't just learn what to do. You practice doing it.</p>
@@ -187,31 +194,33 @@
   <!-- ============ MODEL ============ -->
   <section class="model" id="model" aria-labelledby="model-h">
     <div class="container">
-      <div class="section-head on-dark">
-        <span class="eyebrow">Our training model</span>
-        <h2 id="model-h">One trainer. Real experience. Entire batches ready for the field.</h2>
-        <p>The academy trains large groups efficiently, without losing the practical, hands-on nature of the training.</p>
-      </div>
-      <div class="model-steps">
-        <div class="model-step">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M15 4v5h5"/></svg>
-          <h3>Train</h3>
-          <p>Large groups receive structured, practical in-house instruction.</p>
+      <div class="panel">
+        <div class="section-head" data-reveal style="margin-bottom:56px;">
+          <span class="eyebrow">Our training model</span>
+          <h2 id="model-h">One trainer. Real experience. Entire batches ready for the field.</h2>
+          <p>The academy trains large groups efficiently, without losing the practical, hands-on nature of the training.</p>
         </div>
-        <div class="model-step">
-          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.6 3-6 7-6s7 2.4 7 6"/></svg>
-          <h3>Coach</h3>
-          <p>Participants receive direct guidance and feedback.</p>
-        </div>
-        <div class="model-step">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M3 12h13M12 5l7 7-7 7"/></svg>
-          <h3>Deploy</h3>
-          <p>Participants move into real field environments.</p>
-        </div>
-        <div class="model-step">
-          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="12" cy="12" r="0.6" fill="currentColor"/></svg>
-          <h3>Perform</h3>
-          <p>The goal isn't course completion — it's workplace readiness.</p>
+        <div class="model-steps">
+          <div class="model-step" data-reveal style="--d:0">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M15 4v5h5"/></svg>
+            <h3>Train</h3>
+            <p>Large groups receive structured, practical in-house instruction.</p>
+          </div>
+          <div class="model-step" data-reveal style="--d:1">
+            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.6 3-6 7-6s7 2.4 7 6"/></svg>
+            <h3>Coach</h3>
+            <p>Participants receive direct guidance and feedback.</p>
+          </div>
+          <div class="model-step" data-reveal style="--d:2">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M3 12h13M12 5l7 7-7 7"/></svg>
+            <h3>Deploy</h3>
+            <p>Participants move into real field environments.</p>
+          </div>
+          <div class="model-step" data-reveal style="--d:3">
+            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="12" cy="12" r="0.6" fill="currentColor"/></svg>
+            <h3>Perform</h3>
+            <p>The goal isn't course completion — it's workplace readiness.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -220,7 +229,7 @@
   <!-- ============ JOURNEY ============ -->
   <section class="journey" aria-labelledby="journey-h">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <span class="eyebrow">The field journey</span>
         <h2 id="journey-h">Six stages. One direction: forward.</h2>
       </div>
@@ -239,39 +248,39 @@
   </section>
 
   <!-- ============ WHY DIFFERENT ============ -->
-  <section class="different" aria-labelledby="different-h">
+  <section class="different section-border" aria-labelledby="different-h">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <span class="eyebrow">Why we're different</span>
         <h2 id="different-h">Not a classroom. A field-development platform.</h2>
       </div>
       <div class="diff-grid">
-        <div class="diff-item">
+        <div class="diff-item" data-reveal style="--d:0">
           <svg class="icon" viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 12l9 5 9-5"/><path d="M3 16l9 5 9-5"/></svg>
           <h3>Built by industry veterans</h3>
           <p>Training comes from decades of actual FMCG and sales experience.</p>
         </div>
-        <div class="diff-item">
+        <div class="diff-item" data-reveal style="--d:1">
           <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="12" cy="12" r="0.6" fill="currentColor"/></svg>
           <h3>Field first</h3>
           <p>The objective is practical performance, not memorization.</p>
         </div>
-        <div class="diff-item">
+        <div class="diff-item" data-reveal style="--d:2">
           <svg class="icon" viewBox="0 0 24 24"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="9" r="3"/><path d="M2 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5M13 14.7c2.8.4 5 2.4 5 5.3"/></svg>
           <h3>Large-batch training</h3>
           <p>The academy can prepare significant numbers of candidates efficiently.</p>
         </div>
-        <div class="diff-item">
+        <div class="diff-item" data-reveal style="--d:0">
           <svg class="icon" viewBox="0 0 24 24"><path d="M12 2 4 5.5v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10v-6L12 2Z"/><path d="M9 12l2 2 4-4"/></svg>
           <h3>Real coaching</h3>
           <p>Participants receive guidance that reflects actual field challenges.</p>
         </div>
-        <div class="diff-item">
+        <div class="diff-item" data-reveal style="--d:1">
           <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
           <h3>Employer relevant</h3>
           <p>Training is based on the capabilities companies actually expect.</p>
         </div>
-        <div class="diff-item">
+        <div class="diff-item" data-reveal style="--d:2">
           <svg class="icon" viewBox="0 0 24 24"><path d="M3 12h13M12 5l7 7-7 7"/></svg>
           <h3>Career ready</h3>
           <p>The end goal is to prepare people to enter and perform in real jobs.</p>
@@ -283,21 +292,21 @@
   <!-- ============ FOUNDER ============ -->
   <section class="founder" id="founder" aria-labelledby="founder-h">
     <div class="container founder-grid">
-      <div class="founder-portrait">
+      <div class="founder-portrait" data-reveal>
         <div class="monogram">JN</div>
         <h3>Jeevendran Nallathamby</h3>
         <p class="role">Founder — close to 30 years of hands-on FMCG experience across Saudi Arabia and Sri Lanka</p>
         <p class="founder-quote">This training comes from the field — not from a textbook.</p>
       </div>
-      <div class="founder-bio">
+      <div class="founder-bio" data-reveal>
         <span class="eyebrow">Founder &amp; industry experience</span>
         <h2 id="founder-h" style="font-size:clamp(1.7rem,2.8vw,2.2rem);margin-bottom:20px;">Nearly three decades of running the field, not describing it.</h2>
         <p>Jeevan built the academy after close to 30 years in FMCG across traditional trade, van sales, modern trade and national sales leadership — including senior roles at Said Binzagr Company and Unilever Sri Lanka. He has trained and developed field sales teams throughout that career, and built the academy to pass that experience on directly.</p>
 
         <div class="founder-stats">
           <div class="stat-block"><div class="num" data-count-to="30">0</div><div class="label">Years FMCG &amp; sales experience</div></div>
-          <div class="stat-block"><div class="num" style="font-size:1.4rem;">Sri Lanka + Saudi Arabia</div><div class="label">Regional industry experience</div></div>
-          <div class="stat-block"><div class="num" style="font-size:1.2rem;">Field → Training → Employment</div><div class="label">A practical career pathway</div></div>
+          <div class="stat-block"><div class="num" style="font-size:1.35rem;">Sri Lanka + Saudi Arabia</div><div class="label">Regional industry experience</div></div>
+          <div class="stat-block"><div class="num" style="font-size:1.15rem;">Field → Training → Employment</div><div class="label">A practical career pathway</div></div>
         </div>
 
         <h4>Areas of experience</h4>
@@ -318,19 +327,19 @@
   </section>
 
   <!-- ============ WHO FOR ============ -->
-  <section class="who-for" aria-labelledby="who-for-h">
+  <section class="who-for section-border" aria-labelledby="who-for-h">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <span class="eyebrow">Who is this for</span>
         <h2 id="who-for-h">Two clear pathways in.</h2>
       </div>
       <div class="who-grid">
-        <div class="who-card">
+        <div class="who-card" data-reveal style="--d:0">
           <span class="eyebrow-mini">Ages 18–25</span>
           <h3>For young people</h3>
           <p>Build the skills. Gain field exposure. Start your career.</p>
         </div>
-        <div class="who-card">
+        <div class="who-card" data-reveal style="--d:1">
           <span class="eyebrow-mini">Ages 22+</span>
           <h3>For experienced &amp; aspiring merchandisers</h3>
           <p>Sharpen your execution. Understand the field. Perform better.</p>
@@ -343,26 +352,28 @@
   <!-- ============ EMPLOYERS ============ -->
   <section class="employers" id="employers" aria-labelledby="employers-h">
     <div class="container">
-      <div class="section-head on-dark">
-        <span class="eyebrow">For employers</span>
-        <h2 id="employers-h">Training people for the jobs companies actually need.</h2>
-        <p>Because the organization understands FMCG recruitment as well as field operations, training stays aligned with what employers actually expect.</p>
-      </div>
-      <p class="emp-quote">Recruitment built on route-to-market reality — not recruiter guesswork.</p>
+      <div class="panel">
+        <div class="section-head" data-reveal style="margin-bottom:0;">
+          <span class="eyebrow">For employers</span>
+          <h2 id="employers-h">Training people for the jobs companies actually need.</h2>
+          <p>Because the organization understands FMCG recruitment as well as field operations, training stays aligned with what employers actually expect.</p>
+        </div>
+        <p class="emp-quote" data-reveal>Recruitment built on route-to-market reality — not recruiter guesswork.</p>
 
-      <div class="emp-track">
-        <div class="emp-step"><div class="n">1</div><div class="t">Candidates</div></div>
-        <span class="emp-arrow" aria-hidden="true"></span>
-        <div class="emp-step"><div class="n">2</div><div class="t">Training</div></div>
-        <span class="emp-arrow" aria-hidden="true"></span>
-        <div class="emp-step"><div class="n">3</div><div class="t">Field Readiness</div></div>
-        <span class="emp-arrow" aria-hidden="true"></span>
-        <div class="emp-step"><div class="n">4</div><div class="t">Employers</div></div>
-      </div>
+        <div class="emp-track" data-reveal>
+          <div class="emp-step"><div class="n">1</div><div class="t">Candidates</div></div>
+          <span class="emp-arrow" aria-hidden="true"></span>
+          <div class="emp-step"><div class="n">2</div><div class="t">Training</div></div>
+          <span class="emp-arrow" aria-hidden="true"></span>
+          <div class="emp-step"><div class="n">3</div><div class="t">Field Readiness</div></div>
+          <span class="emp-arrow" aria-hidden="true"></span>
+          <div class="emp-step"><div class="n">4</div><div class="t">Employers</div></div>
+        </div>
 
-      <div class="emp-ctas">
-        <a href="#contact" class="btn btn-primary">Train Your Team</a>
-        <a href="#contact" class="btn btn-outline">Find Trained Talent</a>
+        <div class="emp-ctas" data-reveal>
+          <a href="#contact" class="btn btn-primary">Train Your Team</a>
+          <a href="#contact" class="btn btn-outline">Find Trained Talent</a>
+        </div>
       </div>
     </div>
   </section>
@@ -370,13 +381,13 @@
   <!-- ============ ABOUT ORG ============ -->
   <section class="about-org" aria-labelledby="about-org-h">
     <div class="container about-grid">
-      <div>
+      <div data-reveal>
         <span class="eyebrow">About the organization</span>
         <h2 id="about-org-h">We don't just recruit for FMCG and sales — we've worked in it.</h2>
         <p class="lede">We evaluate and develop candidates based on practical field experience, not CV keywords — because the people building this organization have worked the routes, run the outlets and led the teams themselves.</p>
       </div>
-      <div>
-        <h4 style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--ink-soft);margin-bottom:16px;">Roles we know from the inside</h4>
+      <div data-reveal>
+        <h4 style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--ink-faint);margin-bottom:16px;">Roles we know from the inside</h4>
         <ul class="pill-row">
           <li class="pill">Van Sales Representatives</li>
           <li class="pill">Merchandisers</li>
@@ -390,9 +401,10 @@
   </section>
 
   <!-- ============ FINAL CTA / CONTACT ============ -->
-  <section class="final-cta" id="contact" aria-labelledby="final-cta-h">
+  <section class="final-cta section-border" id="contact" aria-labelledby="final-cta-h">
+    <div class="orb orb-a orb-accent orb-float" aria-hidden="true"></div>
     <div class="container cta-grid">
-      <div class="cta-copy">
+      <div class="cta-copy" data-reveal>
         <h2 id="final-cta-h">Ready to take your first step into the field?</h2>
         <p>Whether you're starting your career or building your team's bench strength, the academy is built to get you there.</p>
         <a href="#enquiryForm" class="btn btn-primary">Get Started</a>
@@ -404,7 +416,7 @@
         </div>
       </div>
 
-      <div class="enquiry-form" id="enquiryForm">
+      <div class="enquiry-form" id="enquiryForm" data-reveal>
         <div id="formDefault">
           <h3>Send an enquiry</h3>
           <form id="contactForm" novalidate>
