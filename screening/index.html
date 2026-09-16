@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FieldScore SA-16 — FieldFirst Academy</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+/* ============================================================
+   Screening page — scoped additions only.
+   Tokens, buttons, nav come from ../css/styles.css
+   ============================================================ */
+
+.screen-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 52px 28px 100px;
+}
+
+/* Page header */
+.screen-header { margin-bottom: 38px; }
+.screen-header h1 { font-size: clamp(1.6rem, 3vw, 2rem); margin-bottom: 10px; }
+.screen-header p { font-size: 0.97rem; color: var(--ink-soft); max-width: 60ch; line-height: 1.6; }
+
+/* Intake */
+.intake {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 24px 26px;
+  margin-bottom: 32px;
+}
+@media (max-width: 520px) { .intake { grid-template-columns: 1fr; } }
+
+.intake-field label {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+  margin-bottom: 8px;
+}
+.intake-field input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line-strong);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.96rem;
+  padding: 6px 2px;
+  transition: border-color 0.2s;
+}
+.intake-field input:focus { outline: none; border-bottom-color: var(--accent); }
+.intake-field input::placeholder { color: var(--ink-faint); }
+
+/* Part sections */
+.part {
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.part-head {
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-elev-2);
+}
+.part-meta {
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 5px;
+}
+.part-head h2 { font-size: 1.02rem; font-weight: 600; color: var(--ink); }
+
+.part-instructions {
+  padding: 14px 24px;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  border-bottom: 1px solid var(--line);
+}
+
+/* Score items */
+.item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--line);
+}
+.item:last-of-type { border-bottom: none; }
+
+.item-q { flex: 1 1 260px; font-size: 0.93rem; color: var(--ink); line-height: 1.45; }
+.item-q .n {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--accent);
+  margin-right: 7px;
+}
+
+/* Scale buttons */
+.scale { display: flex; gap: 6px; }
+.scale button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line-strong);
+  background: var(--bg-elev-2);
+  color: var(--ink-soft);
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: transform 0.15s var(--ease), background 0.15s var(--ease),
+              color 0.15s var(--ease), border-color 0.15s var(--ease);
+}
+.scale button:hover { transform: translateY(-2px); border-color: var(--accent); color: var(--accent); }
+.scale button.sel { background: var(--grad); border-color: transparent; color: #0B0B0D; font-weight: 700; }
+
+/* Notes */
+.notes-wrap { padding: 0 24px 20px; }
+.notes-label {
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+  margin-bottom: 8px;
+  display: block;
+}
+.notes-wrap textarea {
+  width: 100%;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  padding: 10px 14px;
+  min-height: 64px;
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+.notes-wrap textarea:focus { outline: none; border-color: var(--accent); }
+.notes-wrap textarea::placeholder { color: var(--ink-faint); }
+
+/* Weight footnote */
+.weight-note {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--ink-faint);
+  margin-bottom: 28px;
+  padding: 0 2px;
+}
+
+/* Result card */
+.result {
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 32px 30px 30px;
+  position: relative;
+  overflow: hidden;
+}
+.result::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--grad);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.result h2 { font-size: 1.05rem; margin-bottom: 18px; color: var(--ink); }
+.result .pct {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 1;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 14px;
+}
+.result .pct.empty {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  color: var(--ink-faint);
+}
+.result .band {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid currentColor;
+  letter-spacing: 0.01em;
+  margin-bottom: 18px;
+}
+.result .breakdown {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  line-height: 1.9;
+  margin-bottom: 24px;
+}
+.result .breakdown .val { color: var(--ink); font-weight: 600; }
+
+/* Result actions */
+.result-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.result-actions .btn { padding: 12px 22px; font-size: 0.9rem; }
+.btn-danger {
+  background: transparent;
+  border-color: var(--line-strong);
+  color: var(--accent);
+}
+.btn-danger:hover {
+  border-color: var(--accent);
+  background: rgba(255, 92, 58, 0.08);
+  transform: translateY(-2px);
+}
+
+.copied-flag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.76rem;
+  color: var(--accent-2);
+  margin-left: 6px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.copied-flag.show { opacity: 1; }
+
+/* Footer */
+.screen-footer {
+  text-align: center;
+  color: var(--ink-faint);
+  font-size: 0.76rem;
+  font-family: 'IBM Plex Mono', monospace;
+  padding-top: 40px;
+  line-height: 2;
+}
+.screen-footer a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 3px; }
+.screen-footer a:hover { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<!-- All hrefs use ../ — correct relative path from /screening/ back to root,
+     works on both localhost and turb08.github.io/fieldfirst_academy/ -->
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="../" class="logo">
+      <strong>FieldFirst</strong>
+      <span>Sales &amp; FMCG Academy</span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="../">Home</a>
+      <a href="../#programs">Programs</a>
+      <a href="../#model">Our Approach</a>
+      <a href="../#founder">About Us</a>
+      <a href="../#employers">Employers</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--ink-faint);letter-spacing:0.06em;white-space:nowrap;">FORM SA-16</span>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ BODY ============ -->
+<div class="screen-wrap">
+
+  <div class="screen-header">
+    <span class="eyebrow">Internal screening tool</span>
+    <h1>Field Screening Scorecard</h1>
+    <p>Run this after the Google Form pre-screen. Fill Part A with the candidate before the role-play, Part B during the role-play, and Part C after a trial day in the field.</p>
+  </div>
+
+  <!-- INTAKE -->
+  <div class="intake">
+    <div class="intake-field">
+      <label>Candidate name</label>
+      <input type="text" id="candName" placeholder="Full name">
+    </div>
+    <div class="intake-field">
+      <label>Date</label>
+      <input type="date" id="candDate">
+    </div>
+    <div class="intake-field">
+      <label>Area / route</label>
+      <input type="text" id="candArea" placeholder="e.g. Colombo North">
+    </div>
+    <div class="intake-field">
+      <label>Assessed by</label>
+      <input type="text" id="candAssessor" placeholder="Your name">
+    </div>
+  </div>
+
+  <!-- PART A -->
+  <section class="part" id="partA">
+    <div class="part-head">
+      <div class="part-meta">Part A</div>
+      <h2>Self-Report</h2>
+    </div>
+    <div class="part-instructions">Read each statement aloud if needed. Candidate rates themselves 1 (strongly disagree) to 5 (strongly agree). Don't coach the answer.</div>
+    <div id="listA"></div>
+  </section>
+
+  <!-- PART B -->
+  <section class="part" id="partB">
+    <div class="part-head">
+      <div class="part-meta">Part B</div>
+      <h2>Role-Play Rubric</h2>
+    </div>
+    <div class="part-instructions">Hand the candidate a real product. Give them 3–5 minutes to pitch it to you as a skeptical customer, including one objection ("too expensive" or "I'm not interested"). Score what you observe, 1–5.</div>
+    <div id="listB"></div>
+    <div class="notes-wrap">
+      <span class="notes-label">Interviewer notes</span>
+      <textarea id="notesB" placeholder="What stood out, good or bad?"></textarea>
+    </div>
+  </section>
+
+  <!-- PART C -->
+  <section class="part" id="partC">
+    <div class="part-head">
+      <div class="part-meta">Part C</div>
+      <h2>Trial Observation</h2>
+    </div>
+    <div class="part-instructions">Shadow the candidate for a half or full trial day on an actual route, then score 1–5 based on what you saw.</div>
+    <div id="listC"></div>
+    <div class="notes-wrap">
+      <span class="notes-label">Supervisor notes</span>
+      <textarea id="notesC" placeholder="Anything worth remembering for the hiring decision?"></textarea>
+    </div>
+  </section>
+
+  <p class="weight-note">Weighting: Self-Report 20% · Role-Play 40% · Trial Observation 40%</p>
+
+  <!-- RESULT CARD -->
+  <div class="result">
+    <h2>Result</h2>
+    <div class="pct empty" id="pctOut">—%</div>
+    <div class="band" id="bandOut" style="color:var(--ink-faint);border-color:var(--line-strong);">Not enough data yet</div>
+    <div class="breakdown" id="breakdown"></div>
+    <div class="result-actions">
+      <button class="btn btn-primary" onclick="copySummary()">
+        Copy summary <span class="copied-flag" id="copyFlag">copied ✓</span>
+      </button>
+      <button class="btn btn-outline" onclick="downloadSummary()">Download .txt</button>
+      <button class="btn btn-danger" onclick="resetAll()">Reset</button>
+    </div>
+  </div>
+
+  <footer class="screen-footer">
+    FieldScore SA-16 — internal screening tool. Scores are a decision aid, not a verdict.
+    <br><a href="../">← Back to FieldFirst Academy</a>
+  </footer>
+
+</div>
+
+<!-- Shared nav behaviour -->
+<script src="../js/script.js"></script>
+
+<!-- Screening logic -->
+<script>
+const QA = [
+  "I feel comfortable starting a conversation with someone I've never met.",
+  "Being told \"no\" by a customer doesn't discourage me for long.",
+  "I can explain something clearly even if the other person seems confused.",
+  "I prefer earning based on my own effort rather than a fixed salary.",
+  "I am comfortable walking long distances or standing for long hours.",
+  "I stay honest with a customer even if it costs me a sale.",
+  "I can remember product details without needing to read them each time.",
+  "I can take feedback from a supervisor without getting defensive."
+];
+const QB = [
+  "Opening & greeting — approaches naturally, introduces self and product",
+  "Product knowledge — explains clearly, answers questions",
+  "Handling the objection — stays composed, responds with a real answer",
+  "Reading the customer — adapts tone, notices interest or disinterest",
+  "Closing — asks clearly for the sale or the next step"
+];
+const QC = [
+  "Punctuality & presentation — on time, prepared, presentable",
+  "Route discipline — covered the assigned outlets without shortcuts",
+  "Resilience — bounced back after being turned down",
+  "Productivity — number of real customer interactions vs. peers",
+  "Coachability — asked good questions, responded well to guidance",
+  "Overall hustle & initiative"
+];
+
+function buildList(containerId, questions, groupName) {
+  const el = document.getElementById(containerId);
+  questions.forEach((q, i) => {
+    const row = document.createElement('div');
+    row.className = 'item';
+    const btns = [1,2,3,4,5].map(v =>
+      `<button type="button" data-val="${v}" onclick="selectScore('${groupName}',${i},${v},this)">${v}</button>`
+    ).join('');
+    row.innerHTML = `<div class="item-q"><span class="n">${i+1}.</span>${q}</div><div class="scale">${btns}</div>`;
+    el.appendChild(row);
+  });
+}
+buildList('listA', QA, 'A');
+buildList('listB', QB, 'B');
+buildList('listC', QC, 'C');
+
+const scores = {
+  A: Array(QA.length).fill(0),
+  B: Array(QB.length).fill(0),
+  C: Array(QC.length).fill(0)
+};
+
+function selectScore(group, idx, val, btn) {
+  scores[group][idx] = val;
+  [...btn.parentElement.children].forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+  recalc();
+}
+
+function sum(arr) { return arr.reduce((a, b) => a + b, 0); }
+
+function recalc() {
+  const subA = sum(scores.A), maxA = QA.length * 5;
+  const subB = sum(scores.B), maxB = QB.length * 5;
+  const subC = sum(scores.C), maxC = QC.length * 5;
+  const anyFilled = subA + subB + subC > 0;
+
+  const pctOut   = document.getElementById('pctOut');
+  const bandOut  = document.getElementById('bandOut');
+  const breakdown = document.getElementById('breakdown');
+
+  if (!anyFilled) {
+    pctOut.textContent = '—%';
+    pctOut.classList.add('empty');
+    bandOut.textContent = 'Not enough data yet';
+    bandOut.style.color = 'var(--ink-faint)';
+    bandOut.style.borderColor = 'var(--line-strong)';
+    breakdown.innerHTML = '';
+    return;
+  }
+
+  const pctA = subA / maxA, pctB = subB / maxB, pctC = subC / maxC;
+  const overall = (pctA * 0.20 + pctB * 0.40 + pctC * 0.40) * 100;
+  const rounded = Math.round(overall);
+
+  pctOut.textContent = rounded + '%';
+  pctOut.classList.remove('empty');
+
+  let band, color;
+  if (rounded >= 80)      { band = 'Strong Hire';          color = '#6DB87A'; }
+  else if (rounded >= 60) { band = 'Hire — mentor closely'; color = '#C98A2C'; }
+  else                    { band = 'Do Not Hire';           color = 'var(--accent)'; }
+
+  bandOut.textContent = band;
+  bandOut.style.color = color;
+  bandOut.style.borderColor = color;
+
+  breakdown.innerHTML = `
+    Self-Report:       <span class="val">${subA}/${maxA}</span>  (${Math.round(pctA*100)}%) · weight 20%<br>
+    Role-Play:         <span class="val">${subB}/${maxB}</span>  (${Math.round(pctB*100)}%) · weight 40%<br>
+    Trial Observation: <span class="val">${subC}/${maxC}</span> (${Math.round(pctC*100)}%) · weight 40%
+  `;
+}
+
+function buildSummaryText() {
+  const name     = document.getElementById('candName').value     || '(no name)';
+  const date     = document.getElementById('candDate').value     || '(no date)';
+  const area     = document.getElementById('candArea').value     || '(no area)';
+  const assessor = document.getElementById('candAssessor').value || '(no assessor)';
+  const subA = sum(scores.A), subB = sum(scores.B), subC = sum(scores.C);
+  const overall  = document.getElementById('pctOut').textContent;
+  const band     = document.getElementById('bandOut').textContent;
+  const notesB   = document.getElementById('notesB').value || '(none)';
+  const notesC   = document.getElementById('notesC').value || '(none)';
+
+  return `FIELDSCORE SA-16 — SALES TRAINEE SCREEN
+Candidate:    ${name}
+Date:         ${date}
+Area / Route: ${area}
+Assessed by:  ${assessor}
+
+Self-Report:        ${subA}/${QA.length*5}
+Role-Play Rubric:   ${subB}/${QB.length*5}
+Trial Observation:  ${subC}/${QC.length*5}
+
+OVERALL: ${overall} — ${band}
+
+Role-play notes: ${notesB}
+Trial notes:     ${notesC}`;
+}
+
+function copySummary() {
+  navigator.clipboard.writeText(buildSummaryText()).then(() => {
+    const flag = document.getElementById('copyFlag');
+    flag.classList.add('show');
+    setTimeout(() => flag.classList.remove('show'), 1800);
+  });
+}
+
+function downloadSummary() {
+  const name = (document.getElementById('candName').value || 'candidate').replace(/\s+/g, '_');
+  const blob = new Blob([buildSummaryText()], { type: 'text/plain' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `FieldScore_${name}.txt`;
+  a.click();
+}
+
+function resetAll() {
+  if (!confirm('Clear all scores and start a new candidate?')) return;
+  scores.A.fill(0); scores.B.fill(0); scores.C.fill(0);
+  document.querySelectorAll('.scale button.sel').forEach(b => b.classList.remove('sel'));
+  ['candName','candArea','candAssessor'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('candDate').value = '';
+  document.getElementById('notesB').value = '';
+  document.getElementById('notesC').value = '';
+  recalc();
+}
+
+recalc();
+</script>
+</body>
+</html>
